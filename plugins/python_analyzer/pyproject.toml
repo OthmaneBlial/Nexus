@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=67.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-analyzer-python"
+version = "0.1.0"
+description = "Nexus analyzer plugin for Python projects"
+authors = [{name = "Nexus Team"}]
+requires-python = ">=3.11"
+dependencies = ["radon>=6.0.1"]
+
+[project.entry-points."nexus.analyzers"]
+python = "nexus_analyzer_python.plugin:PythonAnalyzer"

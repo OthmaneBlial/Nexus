@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+* {
+  @apply scroll-smooth;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--color-border-soft);
+}
+
+body.theme-dark {
+  --color-bg: #030712;
+  --color-surface: rgba(15, 23, 42, 0.9);
+  --color-surface-muted: rgba(15, 23, 42, 0.65);
+  --color-border: rgba(148, 163, 184, 0.25);
+  --color-border-soft: rgba(148, 163, 184, 0.18);
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-chip-bg: rgba(56, 189, 248, 0.18);
+  --color-chip-text: #38bdf8;
+  --color-chip-border: rgba(56, 189, 248, 0.3);
+  --color-progress-track: rgba(148, 163, 184, 0.2);
+  --color-progress-fill: linear-gradient(90deg, #38bdf8 0%, #818cf8 100%);
+  --color-hero-bg: linear-gradient(135deg, #0f172a 0%, #0b1120 60%, #111827 100%);
+  --color-shadow-soft: 0 24px 40px rgba(15, 23, 42, 0.35);
+  --color-status-success-bg: rgba(34, 197, 94, 0.18);
+  --color-status-success-border: rgba(34, 197, 94, 0.35);
+  --color-status-success-text: #34d399;
+  --color-status-running-bg: rgba(14, 165, 233, 0.18);
+  --color-status-running-border: rgba(14, 165, 233, 0.35);
+  --color-status-running-text: #38bdf8;
+  --color-status-failed-bg: rgba(244, 63, 94, 0.18);
+  --color-status-failed-border: rgba(244, 63, 94, 0.35);
+  --color-status-failed-text: #fb7185;
+  --color-status-pending-bg: rgba(148, 163, 184, 0.2);
+  --color-status-pending-border: rgba(148, 163, 184, 0.32);
+  --color-status-pending-text: #cbd5f5;
+}
+
+body.theme-light {
+  --color-bg: #f8fafc;
+  --color-surface: rgba(255, 255, 255, 0.95);
+  --color-surface-muted: rgba(241, 245, 249, 0.9);
+  --color-border: rgba(203, 213, 225, 0.7);
+  --color-border-soft: rgba(203, 213, 225, 0.5);
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-chip-bg: rgba(14, 165, 233, 0.12);
+  --color-chip-text: #0369a1;
+  --color-chip-border: rgba(14, 165, 233, 0.22);
+  --color-progress-track: rgba(15, 23, 42, 0.1);
+  --color-progress-fill: linear-gradient(90deg, #0ea5e9 0%, #6366f1 100%);
+  --color-hero-bg: linear-gradient(135deg, #e0f2fe 0%, #f8fafc 60%, #e2e8f0 100%);
+  --color-shadow-soft: 0 18px 32px rgba(15, 23, 42, 0.08);
+  --color-status-success-bg: rgba(34, 197, 94, 0.15);
+  --color-status-success-border: rgba(34, 197, 94, 0.25);
+  --color-status-success-text: #15803d;
+  --color-status-running-bg: rgba(14, 165, 233, 0.14);
+  --color-status-running-border: rgba(14, 165, 233, 0.24);
+  --color-status-running-text: #0369a1;
+  --color-status-failed-bg: rgba(244, 63, 94, 0.14);
+  --color-status-failed-border: rgba(244, 63, 94, 0.24);
+  --color-status-failed-text: #b91c1c;
+  --color-status-pending-bg: rgba(148, 163, 184, 0.18);
+  --color-status-pending-border: rgba(148, 163, 184, 0.3);
+  --color-status-pending-text: #334155;
+}
+
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.surface-card {
+  border-radius: 1.25rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--color-shadow-soft);
+  color: var(--color-text-primary);
+}
+
+.surface-panel {
+  border-radius: 1.25rem;
+  border: 1px solid var(--color-border-soft);
+  background: var(--color-surface-muted);
+  color: var(--color-text-primary);
+}
+
+.chip-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-chip-border);
+  background: var(--color-chip-bg);
+  color: var(--color-chip-text);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  padding: 0.35rem 0.9rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-status-pending-border);
+  background: var(--color-status-pending-bg);
+  color: var(--color-status-pending-text);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+}
+
+.status-pill--success {
+  border-color: var(--color-status-success-border);
+  background: var(--color-status-success-bg);
+  color: var(--color-status-success-text);
+}
+
+.status-pill--running {
+  border-color: var(--color-status-running-border);
+  background: var(--color-status-running-bg);
+  color: var(--color-status-running-text);
+}
+
+.status-pill--failed {
+  border-color: var(--color-status-failed-border);
+  background: var(--color-status-failed-bg);
+  color: var(--color-status-failed-text);
+}
+
+.progress-track {
+  position: relative;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-progress-track);
+  overflow: hidden;
+}
+
+.progress-bar {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--color-progress-fill);
+}
+
+.hero-banner {
+  background: var(--color-hero-bg);
+}
+
+.border-theme {
+  border-color: var(--color-border);
+}
+
+.border-theme-soft {
+  border-color: var(--color-border-soft);
+}
+
+.hover\:border-theme:hover {
+  border-color: var(--color-border);
+}
+
+.hover\:border-theme-soft:hover {
+  border-color: var(--color-border-soft);
+}
+
+.tab-button {
+  border-radius: 9999px;
+  border: 1px solid var(--color-border-soft);
+  background: transparent;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tab-button:hover {
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.tab-button--active {
+  border-color: var(--color-chip-border);
+  background: var(--color-chip-bg);
+  color: var(--color-chip-text);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

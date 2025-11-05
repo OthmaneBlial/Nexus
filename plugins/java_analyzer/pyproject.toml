@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=67.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-analyzer-java"
+version = "0.1.0"
+description = "Nexus analyzer plugin for Java projects"
+authors = [{name = "Nexus Team"}]
+requires-python = ">=3.11"
+
+[project.entry-points."nexus.analyzers"]
+java = "nexus_analyzer_java.plugin:JavaAnalyzer"

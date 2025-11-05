@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=67.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-analyzer-javascript"
+version = "0.1.0"
+description = "Nexus analyzer plugin for JavaScript projects"
+authors = [{name = "Nexus Team"}]
+requires-python = ">=3.11"
+
+[project.entry-points."nexus.analyzers"]
+javascript = "nexus_analyzer_javascript.plugin:JavaScriptAnalyzer"

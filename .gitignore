@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.sqlite
+.env
+.venv/
+dist/
+node_modules/
+
+# Frontend build artifacts
+frontend/dist/
+
+# Python bytecode caches
+**/__pycache__/
+*.py[cod]

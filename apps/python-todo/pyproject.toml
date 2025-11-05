@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "python-todo"
+version = "0.2.0"
+description = "Sample FastAPI TODO service for Nexus demos."
+authors = ["Nexus Samples <samples@nexus.local>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.6"
+uvicorn = "^0.32.1"
+pydantic = "^2.9.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+httpx = "^0.28.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
